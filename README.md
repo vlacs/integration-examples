@@ -1,14 +1,12 @@
 # integration-examples
+====
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
+This is a collection of fns and data structures expressing data shapes for use
+in examples in integration specifications.
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 VLACS.org
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
