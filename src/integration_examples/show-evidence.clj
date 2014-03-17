@@ -5,19 +5,20 @@
   (println (json/json-str edn)))
 
 (def user-update
-  {:header {:operation :assert}
-   :payload [{:pheader {:entity-type :user}
-              :pdata {{:user-id 1234} {:lastname "Williams"}}}]})
+  {:header {:operation :assert :assertion-id 1234}
+   :payload [{:entity-type :user
+              :entity-id {:user-id 1234}
+              :entity {:lastname "Williams"}}]})
 
 (def task-progress
-  {:header {:operation :assert}
-   :payload [{:pheader {:entity-type :task-progress}
-              :pdata {{:enrollment-id 2345 :task-id 3456}
-                      {:evaluator-id 9876 :status "complete"}}}]})
+  {:header {:operation :assert :assertion-id 2345}
+   :payload [{:entity-id {:enrollment-id 2345 :task-id 3456}
+              :entity {:evaluator-id 9876 :status "complete"}}]})
 
-(def task-progress-multi
-  {:header {:operation :assert}
-   :payload [{:pheader {:entity-type :task-progress}
-              :pdata {{:enrollment-id 2345 :task-id 3456} {:evaluator-id 9876 :status "complete"}
-                      {:enrollment-id 5678 :task-id 6789} {:evaluator-id 8765 :status "in-progress"}}}]})
+(def task-progress-batch
+  {:header {:operation :assert :assertion-id 3456}
+   :payload [{:entity-id {:enrollment-id 2345 :task-id 3456}
+              :entity {:status "complete"}}
+             {:entity-id {:enrollment-id 5678 :task-id 6789}
+              :entity {:evaluator-id 8765 :status "in-progress"}}]})
 
